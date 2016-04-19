@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+
+	<link rel="stylesheet" type="text/css" href="/assets/shared/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="/assets/user/index.css">
+</head>
+<body >
+	<nav class="navbar navbar-default">
+		<div class="container-fluid">
+			<!-- Brand and toggle get grouped for better mobile display -->
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="#">Trang Chủ</a>
+			</div>
+
+			<!-- Collect the nav links, forms, and other content for toggling -->
+			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+				<ul class="nav navbar-nav">
+					<li ><a href="dangki.html" target="_blank">Đăng Ký <span class="sr-only">(current)</span></a></li>
+					<li><a href="dangnhap.html" target="_blank" >Đăng Nhập</a></li>
+					<li class="dropdown">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Bé Trai <span class="caret"></span></a>
+						<ul class="dropdown-menu">
+							<li><a href="#">Quần Short</a></li>
+							<li><a href="#">Quần Kaki</a></li>
+							<li><a href="#">Quần Jeans</a></li>
+						</ul>
+					</li>
+					<li class="dropdown">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Bé Gái <span class="caret"></span></a>
+						<ul class="dropdown-menu">
+							<li><a href="#">Đầm</a></li>
+							<li><a href="#">Quần</a></li>
+							<li><a href="#">Áo</a></li>
+						</ul>
+					</li>
+					<li class="dropdown">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Bé Ngủ <span class="caret"></span></a>
+						<ul class="dropdown-menu">
+							<li><a href="#">Nệm</a></li>
+							<li><a href="#">Chăn</a></li>
+							<li><a href="#">Gối</a></li>
+						</ul>
+					</li>
+					<li class="dropdown">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Ra Ngoài <span class="caret"></span></a>
+						<ul class="dropdown-menu">
+							<li><a href="#">Xe đạp</a></li>
+							<li><a href="#">Xe đẩy</a></li>
+							<li><a href="#">Xe tập đi</a></li>
+						</ul>
+					</li>
+					<li class="dropdown">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Vệ Sinh<span class="caret"></span></a>
+						<ul class="dropdown-menu">
+							<li><a href="#">Khăn</a></li>
+							<li><a href="#">Tả Quần</a></li>
+							<li><a href="#">Dầu Gội</a></li>
+						</ul>
+					</li>
+					<li class="dropdown">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Sức Khoẻ<span class="caret"></span></a>
+						<ul class="dropdown-menu">
+							<li><a href="#">Nhiệt Kế</a></li>
+							<li><a href="#">Dầu Khuynh Diệp</a></li>
+							<li><a href="#">Cân</a></li>
+						</ul>
+					</li>
+					
+				</ul>
+				<form class="navbar-form navbar-left" role="search">
+					<div class="form-group">
+						<input type="text" class="form-control" placeholder="Tìm Kiếm"
+					</div>
+					<button type="submit" class="btn btn-default">Tìm Kiếm</button>
+
+				</form>
+
+				
+			</div><!-- /.navbar-collapse -->
+		</div><!-- /.container-fluid -->
+	</nav>
+
+	<%= yield %>
+	
+	<nav class="navbar_footer">
+		<div class="container-fluid">
+			Quần Áo Trẻ Em
+			<div class="navbar-footer">
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+			</div>
+		</div>
+	</nav>
+
+
+	<script type="text/javascript" src= "/assets/shared/jquery-1.12.3.min.js"></script>
+	<script type="text/javascript" src= "/assets/shared/bootstrap.min.js"></script>
+</body>
+</html>
