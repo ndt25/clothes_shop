@@ -1,5 +1,5 @@
 class UserController < ApplicationController
-	layout 'layout'
+	layout 'back_layout'
 	def register		
 	end
 	def login		
