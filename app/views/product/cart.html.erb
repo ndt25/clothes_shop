@@ -1,0 +1,52 @@
+<% content_for :stylesheets do %>
+	<link rel="stylesheet" type="text/css" href="/assets/product/cart.css">
+<% end %>
+
+<% content_for :javascripts do %>
+	<script type="text/javascript" src="/assets/product/cart.js"></script>
+<% end %>
+<div class="container">
+		<table class="shop_table shop_table_responsive cart" cellspacing="0">
+	<thead>
+		<tr>
+			<th class="product-remove">&nbsp;</th>
+			<th class="product-thumbnail">&nbsp;</th>
+			<th class="product-name">Sản Phẩm</th>
+			<th class="product-price">Giá</th>
+			<th class="product-quantity">Số Lượng</th>
+			<th class="product-subtotal">Tổng Giá</th>
+		</tr>
+	</thead>
+	<body>
+		<tr class="cart_item">
+
+			<td class="product-remove">
+				<a href=" "class="remove" title="Remove this item" data-product_id="2913" data-product_ku="">×</a>					
+			</td>
+
+			<td class="product">
+					<img width="157" height="157" src="157x157.jpg" class="image" alt="Rotary Phone" srcset="" sizes="(max-width: 157px) 100vw, 157px">
+			</td>
+
+			<td class="name" data-title="Product">
+				Red Rotary Phone					
+			</td>
+
+			<td class="price" data-title="Price">
+				<span class="amount">$42.00</span>					
+			</td>
+
+			<td class="quantity" data-title="Quantity">
+				<div class="quantity">
+					<input type="number" step="1" min="0" max="" name="cart[b31df16a88ce00fed951f24b46e08649][qty]" value="1" title="Qty" class="input-text qty text" size="4">
+				</div>
+			</td>
+
+			<td class="product-subtotal" data-title="Total">
+				<span class="amount">$42.00</span>					
+			</td>
+		</tr>
+	</body>
+</table>
+<button type="submit" class="buy">Cập nhật</button>
+</div>
