@@ -1,6 +1,7 @@
 class Product < ActiveRecord::Base
 	has_many :order_details
+	has_many :upload_files, foreign_key: 'object_id'
 	belongs_to :category
-	has_and_belongs_to_many :colors
-	has_and_belongs_to_many :sizes
+	belongs_to :color
+	belongs_to :size
 end

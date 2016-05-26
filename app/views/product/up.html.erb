@@ -5,95 +5,111 @@
 <% content_for :javascripts do %>
 	<script type="text/javascript" src="/assets/product/up.js"></script>
 <% end %>
+
 <% content_for :page_heading do %>
 	<h1>
-		Thêm sản phẩm
-		<small>Thêm </small>
+		Sản phẩm
+		<small>Thêm</small>
 	</h1>
-	<ol class="breadcrumb">
-		<li><a href="/"></i> Trang chủ</a></li>
-		<li class="active">Thêm sản phẩm</li>
-	</ol>
 <% end %>
+
 <div class="box box-primary">
 	<div class="box-header with-border">
-		<h3 class="box-title">Thêm sản phẩm</h3>
+		<h3 class="box-title">Sản phẩm</h3>
 	</div>
 	<!-- /.box-header -->
 	<!-- form start -->
-	<form role="form">
+	<%= form_for @product, builder: ApplicationFormBuilder, url: ('/product/up/' + @product.id.to_s), method: 'post', html: { class: 'init-form' } do |f| %>
 		<div class="box-body">
-			<div class="form-group">
-				<label for="exampleInputEmail1">Tên Sản Phẩm</label>
-				<input type="tensanpham" class="form-control" id="tensanpham" placeholder="Tên Sản Phẩm">
-			</div>
-			<div class="form-group">
-				<label for="giasanpham">Giá</label>
-				<input type="text" class="form-control" id="gia" placeholder="Giá">
-			</div>
-			<div class="form-group">
-				<label for="loai">Loại</label>
-				<select class="form-control" >
-					<option>Bé Trai</option>
-					<option>Bé Gái</option>
-					<option>Bé Ngủ</option>
-					<option>Ra Ngoài</option>
-					<option>Vệ Sinh</option>
-					<option>Sức Khỏe</option>
-				</select>
-			</div>
-			<div class="form-group">
-				<label for="loai">Màu</label>
-				<select class="form-control" >
-					<option>Đỏ</option>
-					<option>Xanh lá</option>
-					<option>Hồng</option>
-					<option>Vàng</option>
-					<option>Lam</option>
-					<option>Trắng</option>
-					<option>Đen</option>
-					<option>Tím</option>
-					<option>Cam</option>
-					<option>Xám</option>
-				</select>
-			</div>
-			<div class="form-group">
-				<label for="loai">Size</label>
-				<select class="form-control" >
-					<option>1</option>
-					<option>2</option>
-					<option>3</option>
-					<option>4</option>
-					<option>5</option>
-					<option>6</option>
-					<option>7</option>
-					<option>8</option>
-					<option>9</option>
-					<option>10</option>
-				</select>
-			</div>
-			<div class="form-group">
-				<label for="soluong">Số Lượng</label>
-				<input type="text" class="form-control" id="SL" placeholder="Số lượng">
-			</div>
-			<div class="form-group">
-				<label for="soluong">Mô tả</label>
-				<textarea type="text" class="form-control" id="mota" placeholder="Mô tả" ></textarea>
-			</div>
-			<div class="form-group">
-				<label for="hinhanh">Hình Ảnh</label>
-				<form action="up" method="post" enctype="multipart/form-data">
-					<input type="file" name="fileToUpload" id="fileToUpload">
-				</form>
-			</div>				
+			<%=
+				f.field(
+					'text',
+					:name,
+					{
+						id: 'lung',
+						placeholder: 'Tên Sản Phẩm'
+					}, 
+					{
+						label: 'Tên Sản Phẩm'
+					}
+				)
+			%>
+			<%=
+				f.field(
+					'number',
+					:price,
+					{
+						placeholder: 'Giá'
+					}, 
+					{
+						label: 'Giá'
+					}
+				)
+			%>
+			<%=
+				f.field(
+					'select',
+					:category_id,
+					{
+					}, 
+					{
+						label: 'Loại',
+						select_options_list:
+							Category.all.map{ |category| [category.name, category.id] }
+					}
+				)
+			%>
+			<%=
+				f.field(
+					'select',
+					:color_id,
+					{}, 
+					{
+						label: 'Màu sắc',
+						select_options_list:
+							Color.all.map{ |color| [color.name, color.id] }
+					}
+				)
+			%>
+			<%=
+				f.field(
+					'select',
+					:size_id,
+					{}, 
+					{
+						label: 'Kích thước',
+						select_options_list:
+							Size.all.map{ |size| [size.size, size.id] }
+					}
+				)
+			%>
+			<%=
+				f.field(
+					'textarea',
+					:description,
+					{
+						placeholder: 'Mô tả'
+					},
+					{
+						label: 'Mô tả'
+					}
+				)
+			%>
+			<%=
+				f.field(
+					'file',
+					'upload_file_ids',
+					{},
+					{
+						label: 'Hình ảnh',
+						input_quantity: 3,
+						files: @product.upload_files
+					}
+				)
+			%>
 		</div>
 		<div class="box-footer">
 			<button type="submit" class="btn btn-primary">Thêm sản phẩm</button>
 		</div>
-	</form>
+	<% end %>
 </div>
-
-
-
-
-

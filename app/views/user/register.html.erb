@@ -17,46 +17,116 @@
 	</ol>
 <% end %>
 
+<% @users.each do |user| %>
+	<% next %>
+	<ul>
+		<li>
+			ID: <%= user.id %>
+		</li>
+		<li>
+			Name: <%= user.name %>
+		</li>
+		<li>
+			Email: <%= user.email %>
+		</li>
+	</ul>
+<% end %>
+
 <div class="box box-primary">
 	<div class="box-header with-border">
 		<h3 class="box-title">Thông tin tài khoản</h3>
 	</div>
 	<!-- /.box-header -->
 	<!-- form start -->
-	<form role="form">
+	<%= form_for @user, builder: ApplicationFormBuilder, url: ('/user/register/' + @user.id.to_s), method: 'post' do |f| %>
 		<div class="box-body">
-			<div class="form-group">
-				<label for="exampleInputEmail1">Tài Khoản</label>
-				<input type="email" class="form-control" id="exampleInputEmail1" placeholder="Tài Khoản">
-			</div>
-			<div class="form-group">
-				<label for="exampleInputPassword1">Mật Khẩu</label>
-				<input type="password" class="form-control" id="exampleInputPassword1" placeholder="Mật Khẩu">
-			</div>
-			<div class="form-group">
-				<label for="exampleInputPassword1">Nhập lại Mật Khẩu</label>
-				<input type="password" class="form-control" id="exampleInputPassword1" placeholder="Nhập Lại Mật Khẩu">
-			</div>
-			<div class="form-group">
-					<label for="Email1">Số điện thoại</label>
-					<input type="text" class="form-control" id="SĐT" placeholder="Số điện thoại">
-				</div>
-			<div class="form-group">
-				<label for="exampleInputFile">Hình ảnh</label>
-				<input type="file" id="exampleInputFile">
-				<p class="help-block">Example block-level help text here.</p>
-			</div>
-			<div class="checkbox">
-				<label>
-					<input type="checkbox">Ghi Nhớ
-				</label>
-			</div>
+			<%=
+				f.field(
+					'email',
+					:email,
+					{
+						placeholder: 'Email'
+					}, 
+					{
+						label: 'Email'
+					} 
+				)
+			%>
+			<%=
+				f.field(
+					'password',
+					:password,
+					{
+						placeholder: 'Mật khẩu'
+					}, 
+					{
+						label: 'Mật khẩu'
+					}
+				)
+			%>
+			<%=
+				f.field(
+					'password',
+					:repeat_password,
+					{
+						placeholder: 'Nhập lại mật khẩu'
+					}, 
+					{
+						label: 'Nhập lại mật khẩu'
+					}
+				)
+			%>
+			<%=
+				f.field(
+					'text',
+					:name,
+					{
+						placeholder: 'Họ và tên'
+					}, 
+					{
+						label: 'Họ và tên'
+					}
+				)
+			%>
+			<%=
+				f.field(
+					'date',
+					:birthday,
+					{
+						placeholder: 'Ngày sinh'
+					}, 
+					{
+						label: 'Ngày sinh'
+					}
+				)
+			%>
+			<%=
+				f.field(
+					'textarea',
+					:address,
+					{
+						placeholder: 'Địa chỉ'
+					}, 
+					{
+						label: 'Địa chỉ'
+					}
+				)
+			%>
+			<%=
+				f.field(
+					'number',
+					:number_phone,
+					{
+						placeholder: 'Số điện thoại'
+					}, 
+					{
+						label: 'Số điện thoại'
+					}
+				)
+			%>
 		</div>
-		<!-- /.box-body -->
-
 		<div class="box-footer">
-			<button type="submit" class="btn btn-primary">Đăng Ký</button>
+			<%= f.submit 'Đăng ký', class: 'btn btn-primary' %>
 		</div>
-	</form>
+	<% end %>
 </div>
-

@@ -1,53 +1,79 @@
+<% content_for :stylesheets do %>
+	<link rel="stylesheet" type="text/css" href="/assets/product/manage.css">
+<% end %>
+
+<% content_for :javascripts do %>
+<% end %>
+
+<% content_for :page_heading do %>
+	<h1>
+		Sản phẩm
+		<small>Quản lý</small>
+	</h1>
+<% end %>
+
 <div class="box">
 	<div class="box-header with-border">
 		<h3 class="box-title">Danh sách sản phẩm</h3>
 	</div>
  
-	<div class="box-body">
-		<table class="table table-bordered">
-			<tbody><tr>
-				<th style="width: 10px">STT</th>
-				<th>Tên sản phẩm</th>
-				<th>Giá</th>
-				<th>Loại</th>
-				<th>Số Lượng</th>
-				<th>Mô tả</th>				
-			</tr>
-			<tr>
-				<td>1.</td>
-				<td>Update software</td>
-				<td>fdbfb</td>
-				<td>vcv</td>
-				<td>fdbfb</td>
-				<td>vcv</td>
-			</tr>
-			<tr>
-				<td>2.</td>
-				<td>Update software</td>
-				<td>fdbfb</td>
-				<td>vcv</td>
-				<td>fdbfb</td>
-				<td>vcv</td>
-			</tr>
-			<tr>
-				<td>3.</td>
-				<td>Update software</td>
-				<td>fdbfb</td>
-				<td>vcv</td>
-				<td>fdbfb</td>
-				<td>vcv</td>
-			</tr>
-			
-		</tbody></table>
-	</div>
-	
-	<div class="box-footer clearfix">
-		<ul class="pagination pagination-sm no-margin pull-right">
-			<li><a href="#">«</a></li>
-			<li><a href="#">1</a></li>
-			<li><a href="#">2</a></li>
-			<li><a href="#">3</a></li>
-			<li><a href="#">»</a></li>
-		</ul>
+	<div class="box-body no-padding">
+		<table class="table table-striped product-table">
+			<thead>
+				<tr>
+					<th>
+						
+					</th>
+					<th>
+						Mã
+					</th>
+					<th>
+						Tên sản phẩm
+					</th>
+					<th>
+						Giá
+					</th>
+					<th>
+						Màu sắc
+					</th>
+					<th>
+						Kích thước
+					</th>
+					<th>
+						
+					</th>
+				</tr>
+			</thead>
+			<tbody>
+				<% @products.each do |product| %>
+					<tr>
+						<td>
+							<% if product.upload_files.present? %>
+								<img style="max-width: 50px; max-height: 50px" src="/assets/<%= "#{product.upload_files[0].id}_#{product.upload_files[0].name}" %>" />
+							<% end %>
+						</td>
+						<td>
+							<%= product.id %>
+						</td>
+						<td>
+							<%= product.name %>
+						</td>
+						<td>
+							<%= product.price %>
+						</td>
+						<td>
+							<%= product.color.name if product.color.present? %>
+						</td>
+						<td>
+							<%= product.size.size if product.size.present? %>
+						</td>
+						<td>
+							<a class="btn btn-success" href="/product/up/<%= product.id %>"><span class="fa fa-pencil"></span> Sửa</a>
+							<a class="btn btn-danger" href="/product/delete/<%= product.id %>" onclick="if (!confirm('Bạn có chắc muốn xóa?')) { return false; }"><span class="fa fa-close"></span> Xóa</a>
+						</td>
+					</tr>
+				<% end %>
+			</tbody>
+		</table>
 	</div>
 </div>

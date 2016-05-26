@@ -30,6 +30,7 @@
 		<!-- bootstrap wysihtml5 - text editor -->
 		<link rel="stylesheet" href="/assets/lte/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css">
 
+		<link rel="stylesheet" type="text/css" href="/assets/shared/back_layout.css">
 		<%= yield :stylesheets %>
 
 		<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -302,7 +303,6 @@
 						</div>
 						<div class="pull-left info">
 							<p>Alexander Pierce</p>
-							<a href="#"><i class="fa fa-circle text-success"></i> Online</a>
 						</div>
 					</div>
 					<!-- search form -->
@@ -472,7 +472,14 @@
 
 				<!-- Main content -->
 				<section class="content">
-					
+
+					<% flash.each do |name, message| %>
+						<div class="flash flash-<%= name %>">
+							<%= message %>
+						</div>
+					<% end %>
+					<% flash.clear %>
+
 					<%= yield %>
 
 				</section><!-- /.content -->
@@ -684,6 +691,7 @@
 		<script src="/assets/lte/plugins/fastclick/fastclick.min.js"></script>
 		<!-- AdminLTE App -->
 		<script src="/assets/lte/js/app.min.js"></script>
+		<script src="/assets/shared/back_layout.js"></script>
 		<%= yield :javascripts %>
 	</body>
 </html>

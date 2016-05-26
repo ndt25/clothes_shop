@@ -1,6 +1,13 @@
 Rails.application.routes.draw do
 
+  resources :sizes
+  resources :colors
+  resources :categories
+
   get ':controller/:action(/:id)'
+  post ':controller/:action(/:id)'
+  put ':controller/:action(/:id)'
+  patch ':controller/:action(/:id)'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

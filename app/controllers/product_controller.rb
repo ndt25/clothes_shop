@@ -1,20 +1,46 @@
 class ProductController < ApplicationController
+
+	layout 'layout'
 	
 	def list
-		render layout:'layout'
 	end
-	def up	
+
+	def up
+		if params[:id].present?
+			@product = Product.find(params[:id])
+		else
+			@product = Product.new
+		end
+
+		if request.post?
+			# Save
+			@product.assign_attributes(
+				params[:product].permit(:name, :price, :category_id, :color_id, :size_id, :description, { upload_file_ids: [] })
+			)
+
+			if @product.save
+				return redirect_to '/product/manage'
+			end
+		end
+
 		render layout:'back_layout'		
 	end
+
 	def detail
-		render layout:'layout'
 	end
+	
 	def cart	
-		render layout:'layout'	
 	end
+
 	def manage
-		render layout:'back_layout'	
+		@products = Product.all
+
+		render layout: 'back_layout'	
+	end
+
+	def delete
+		Product.delete params[:id]
+
+		return redirect_to '/product/manage'
 	end
 end
-
-
