@@ -161,7 +161,7 @@ body.et_cover_background {
 
 /* Links */
 a {
-	color: #2ea3f2g;
+	color: #2ea3f2;
 	text-decoration: none;
 }
 
@@ -6027,7 +6027,8 @@ ul.et_pb_side_nav .side_nav_item a.active {
 /* Basic Styles */
 @font-face {
 	font-family: "ETmodules";
-	src: url("/assets/layout/fonts/modules.ttf") format("truetype");
+	src: url("core/admin/fonts/modules.eot");
+	src: url("core/admin/fonts/modules.eot?#iefix") format("embedded-opentype"), url("core/admin/fonts/modules.ttf") format("truetype"), url("core/admin/fonts/modules.woff") format("woff"), url("core/admin/fonts/modules.svg#ETmodules") format("svg");
 	font-weight: normal;
 	font-style: normal;
 }
@@ -7185,8 +7186,8 @@ p.et_pb_gallery_caption {
 }
 
 .et_pb_widget_area_right {
-	padding-left: 20px;
-	border-right: 2px solid rgba(0, 0, 0, 0.1);
+	padding-left: 30px;
+	border-left: 1px solid rgba(0, 0, 0, 0.1);
 }
 
 .et_pb_no_sidebar_vertical_divider .et_pb_widget_area_left {
@@ -8972,7 +8973,7 @@ a.et_pb_more_button:after,
 }
 
 .et_pb_slide {
-	padding: 0;
+	padding: 0 6%;
 }
 
 .et_pb_video_slider .et_pb_slide {
@@ -13571,7 +13572,7 @@ span.comment_date {
 
 /* Sections and Rows */
 	.et_pb_section {
-		padding: 0% 0;
+		padding: 4% 0;
 	}
 
 	.et_pb_fullwidth_section {
