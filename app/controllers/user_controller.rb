@@ -2,6 +2,7 @@ class UserController < ApplicationController
 	layout 'back_layout'
 
 	def register
+		@_title = '123'
 		# Co the nhan dc 1 params id
 		if params[:id].present?
 			@user = User.find(params[:id])
@@ -23,15 +24,12 @@ class UserController < ApplicationController
 			@user.save
 		end
 
-
-
-
-
-
-
-
 		@users = User.all
+
+		render layout: 'empty'
 	end
+
+
 
 	def login
 
@@ -53,6 +51,8 @@ class UserController < ApplicationController
 				flash[:error] = 'Email hoặc mật khẩu không chính xác'
 			end
 		end
+
+		render layout: 'empty'
 
 	end
 end
