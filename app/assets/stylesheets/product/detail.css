@@ -1,6 +1,6 @@
 
 .thumbnail img {
-    width: 100%;
+    
 }
 
 /*.ratings {
@@ -10,7 +10,7 @@
 }*/
 
 .thumbnail {
-    padding: 0;
+    padding: 70px;
 }
 
 .thumbnail .caption-full {
@@ -19,7 +19,7 @@
 }
 
 footer {
-    margin: 50px 0;
+    
 }
 .form-register {
 	text-align: center;	
@@ -29,4 +29,14 @@ footer {
 	width: 70px;
 	display: inline-block;
     vertical-align: middle;
+
+}
+.images{
+    padding-top: 30px;
+    width: 300px;
+    height: auto;
+}
+.container .row{
+    padding-left: 200px;
+
 }

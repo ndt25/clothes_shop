@@ -19,14 +19,14 @@
 	
 	<script type="text/javascript" src="http://www.elegantthemes.com/preview/Divi/wp-includes/js/jquery/jquery.js?ver=1.12.3"></script>
 	<script type="text/javascript" src="http://www.elegantthemes.com/preview/Divi/wp-includes/js/jquery/jquery-migrate.min.js?ver=1.4.0"></script>
-<link rel="stylesheet" type="text/css" href="/assets/shared/bootstrap.min.css">
-<link rel="stylesheet" type="text/css" href="/assets/layout/css/bootstrap.css">
+<!-- <link rel="stylesheet" type="text/css" href="/assets/shared/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="/assets/layout/css/bootstrap.css"> -->
 <link rel="stylesheet" type="text/css" href="/assets/layout/css/page.css">
 <link rel="stylesheet" type="text/css" href="/assets/layout/css/style.css">
 
 <%= yield :stylesheets %>
 </head>
-<body class="page page-id-2896 page-template-default custom-background et_pb_button_helper_class et_fixed_nav et_show_nav et_cover_background et_secondary_nav_enabled et_secondary_nav_two_panels et_pb_gutter osx et_pb_gutters3 et_primary_nav_dropdown_animation_fade et_secondary_nav_dropdown_animation_fade et_pb_footer_columns4 et_header_style_left et_pb_pagebuilder_layout et_right_sidebar safari">
+<body class="<%= @_body_class %> page page-id-2896 page-template-default custom-background et_pb_button_helper_class et_fixed_nav et_show_nav et_cover_background et_secondary_nav_enabled et_secondary_nav_two_panels et_pb_gutter linux et_pb_gutters3 et_primary_nav_dropdown_animation_fade et_secondary_nav_dropdown_animation_fade et_pb_footer_columns4 et_header_style_left et_pb_pagebuilder_layout et_right_sidebar chrome">
 	<div id="page-container" class="et-animated-content" style="padding-top: 111px; margin-top: -1px;">
 		<div id="top-header" class="">
 			<div class="container clearfix"> 
@@ -57,14 +57,14 @@
 				<div class="logo_container">
 					<span class="logo_helper"></span>
 					<a href="#">
-						<img src="/assets/product/layout.jpg" alt="Divi, The Ultimate WordPress Theme" id="logo" data-height-percentage="54" data-actual-width="93" data-actual-height="43">
+							<img src="/assets/product/logo.png" alt="Divi, The Ultimate WordPress Theme" id="logo" data-height-percentage="54" data-actual-width="93" data-actual-height="43">
 					</a>
 				</div>
 				
 				<div id="et-top-navigation" data-height="66" data-fixed-height="40" >
 					<nav id="top-menu-nav">
 						<ul id="top-menu" class="nav">
-							<li id="menu-item-3575" class="menu-item menu-item-type-post_type menu-item-object-page current-menu-ancestor current-menu-parent current_page_parent current_page_ancestor menu-item-has-children menu-item-3575">
+							<li id="menu-item-3575" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-5325">
 								<a href="#">Quần Áo Bé Trai</a>
 									<ul class="sub-menu">
 										<li id="menu-item-3596" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3596">
@@ -78,7 +78,7 @@
 										</li>
 									</ul>
 							</li>
-							<li id="menu-item-3575" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-3575">
+							<li id="menu-item-3575" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-5325">
 								<a href="#">Quần Áo Bé Gái</a>
 									<ul class="sub-menu">
 										<li id="menu-item-3596" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3596">
@@ -95,15 +95,27 @@
 										</li>
 									</ul>
 							</li>
+							<div id="et_top_search">
+								<span id="et_search_icon"></span>
+							</div>
+							<input type="text" value="Tìm Kiếm">
 						</ul>	
 					</nav>
-				</div>			
+				</div>
+				
+			</div>			
 		</header> 
 <div class="et_pb_section et_pb_fullwidth_section  et_pb_section_0 et_section_regular">		
 	<div class="et_pb_module et_pb_slider  et_pb_fullwidth_slider_0 et_pb_bg_layout_dark">
 		<div class="et_pb_slides">
-			<div class="et_pb_slide et_pb_slide_with_image et_pb_bg_layout_dark et_pb_media_alignment_center et_pb_slide_0 et-pb-active-slide" style="background-color:gray; ">
-				<img src="/assets/product/layout.jpg" alt="" class="active" style="max-height: 406px;">
+			<div class="et_pb_slide et_pb_slide_with_image et_pb_bg_layout_dark et_pb_media_alignment_center et_pb_slide_0 et-pb-active-slide" style="background-color:white; ">
+				<marquee id="marq" scrollamount="10" direction="left" loop="10" scrolldelay="0" behavior="alternate">
+					<img src="/assets/product/layout.jpg" alt="" class="active" width="1500">
+					<img src="/assets/product/layout1.jpg" alt="" class="active" width="513">
+					<img src="/assets/product/layout2.jpg" alt="" class="active" width="400">
+					<img src="/assets/product/layout3.jpg" alt="" class="active" width="813">
+					<!--<img src="/assets/product/layout3.jpg" alt="" class="active" style="max-height: 406px;">!-->
+				</marquee>
 			</div>
 		</div> 
 	</div> 		
@@ -112,45 +124,18 @@
 	 <div class="l-pageWrapper"></div>
 </div>  
 
-<div class="container">
-	<div class="row">
-		<div class="col-xs-1">
-			<div id="menu">
-				 <ul class="menu">
-					<li><a href="#">Bé Trai</a>
-						<ul class="sub-menu">
-							<li><a href="#">Đồ bộ</a></li>
-							<li><a href="#">Quần</a></li>
-							<li><a href="#">Áo</a></li>
-						</ul>
-					</li>
-					<li><a href="#">Bé Gái</a>
-						<ul class="sub-menu">
-							<li><a href="#">Đồ bộ</a></li>
-							<li><a href="#">Quần</a></li>
-							<li><a href="#">Váy,đầm</a></li>
-							<li><a href="#">Áo</a></li>
-						</ul>
-					</li>
-				 </ul>
-			</div>
-		</div>
-		<div class="col-xs">
-			<%= yield %>
-		</div>
-	</div>
-</div>      
 
+<%= yield %>
 
 <footer id="main-footer">
 	<div id="footer-bottom">
 		<div class="container clearfix">
 			<ul class="et-social-icons">	
 			</ul>
-				<p id="footer-info">Designed by 
-					<a href="http://www.elegantthemes.com" title="Premium WordPress Themes">Elegant Themes</a> | Powered by 
-					<a href="http://www.wordpress.org">WordPress</a>
-				</p>
+			<p id="footer-info">Designed by 
+				<a href="http://www.elegantthemes.com" title="Premium WordPress Themes">Elegant Themes</a> | Powered by 
+				<a href="http://www.wordpress.org">WordPress</a>
+			</p>
 		</div>	
 	</div>		
 </footer>
