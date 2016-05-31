@@ -1,8 +1,13 @@
 class ProductController < ApplicationController
 
 	layout 'layout'
-	
+
 	def list
+		# Lay DL = model
+		@products = Product.all
+
+		# Tao HTML / render view
+		# render 'list', layout: 'layout'
 	end
 
 	def up
@@ -27,6 +32,12 @@ class ProductController < ApplicationController
 	end
 
 	def detail
+		# Lay id ma nguoi dung truyen vao
+		id = params[:id]
+
+		# Tim san pham theo id do
+		@product = Product.find(id)
+
 	end
 	
 	def cart	
