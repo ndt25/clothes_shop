@@ -26,7 +26,6 @@
 					'text',
 					:name,
 					{
-						id: 'lung',
 						placeholder: 'Tên Sản Phẩm'
 					}, 
 					{
@@ -98,10 +97,11 @@
 			<%=
 				f.field(
 					'file',
-					'upload_file_ids',
+					:upload_file_ids,
 					{},
 					{
 						label: 'Hình ảnh',
+						error_key: :upload_files,
 						input_quantity: 3,
 						files: @product.upload_files
 					}
@@ -109,7 +109,13 @@
 			%>
 		</div>
 		<div class="box-footer">
-			<button type="submit" class="btn btn-primary">Thêm sản phẩm</button>
+			<button type="submit" class="btn btn-primary">
+				<% if @product.new_record? %>
+					Thêm sản phẩm
+				<% else %>
+					Cập nhật sản phẩm
+				<% end %>
+			</button>
 		</div>
 	<% end %>
 </div>

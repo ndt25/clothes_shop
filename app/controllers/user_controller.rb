@@ -18,7 +18,7 @@ class UserController < ApplicationController
 			end
 
 			@user.assign_attributes(
-				params[:user].permit(:email, :password, :name, :birthday, :address, :number_phone)
+				params[:user].permit(:email, :password, :password_confirmation, :name, :birthday, :address, :number_phone)
 			)
 
 			@user.save
