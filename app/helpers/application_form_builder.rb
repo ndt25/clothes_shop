@@ -87,9 +87,18 @@ class ApplicationFormBuilder < ActionView::Helpers::FormBuilder
 				''
 			end
 
-		('<div class="form-group">' +
+		error_key = params[:error_key].present? ? params[:error_key] : method
+		has_error = self.object.errors.messages[error_key].present?
+		if has_error
+			error_message = '<div class="help-block text-right"><i class="fa fa-times-circle-o"></i> ' + self.object.errors.messages[error_key].join(', ') + '</div>'
+		else
+			error_message = ''
+		end
+
+		('<div class="form-group ' + (has_error ? 'has-error' : '') + '">' +
 			label(method, params[:label]) +
 			input_html +
+			error_message +
 		'</div>').html_safe
 	end
 end
