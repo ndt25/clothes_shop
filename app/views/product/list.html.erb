@@ -24,7 +24,8 @@
 							<li class="first post-1426 product type-product status-publish has-post-thumbnail product_cat-food product_cat-shop product_tag-food featured shipping-taxable purchasable product-type-variable product-cat-food product-cat-shop product-tag-food has-default-attributes has-children instock">
 								<a href="/product/detail/<%= product.id %>">
 									<span class="et_shop_image">
-										<img width="400" height="400" src="/assets/product/3d-nguoi-nhen.jpg" sizes="(max-width: 400px) 100vw, 400px">
+										
+										<img width="400" height="400" src="/assets/<%= "#{product.upload_files[0].id}_#{product.upload_files[0].name}" %>" />
 										<span class="et_overlay"></span>
 									</span>
 									<h3><%= product.name %></h3>

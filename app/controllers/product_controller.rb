@@ -1,5 +1,7 @@
 class ProductController < ApplicationController
 
+	skip_before_filter :verify_authenticity_token, only: :add_to_cart
+
 	layout 'layout'
 
 	def list
@@ -39,8 +41,29 @@ class ProductController < ApplicationController
 		@product = Product.find(id)
 
 	end
+
+	def add_to_cart
+		id 			= params[:id]
+		quantity 	= params[:quantity]
+
+		# Kiem tra xem da co gio hang hay chua
+		# Neu chua thi khoi tao
+		session[:cart] ||= {} # Neu cart da ton tai thi giu nguyen, neu chua thi = {}
+
+		# Them san pham vao gio hang
+		session[:cart][id] = quantity
+
+		# Chuyen huong sang trang /product/list
+		redirect_to '/product/list'
+	end
 	
-	def cart	
+	def cart
+		if session[:cart].blank?
+			redirect_to '/product/list'
+		end
+
+		ids = session[:cart].keys
+		@products = Product.find(ids)
 	end
 
 	def manage
@@ -53,5 +76,14 @@ class ProductController < ApplicationController
 		Product.delete params[:id]
 
 		return redirect_to '/product/manage'
+	end
+
+	def checkout
+		if session[:cart].blank?
+			redirect_to '/product/list'
+		end
+
+		ids = session[:cart].keys
+		@products = Product.find(ids)
 	end
 end
