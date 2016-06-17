@@ -4,3 +4,4 @@ Gemfile.lock
 .byebug_history
 /app/assets/file_uploads/*
 db/development.sqlite3
+config/database.yml

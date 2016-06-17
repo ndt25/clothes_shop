@@ -1,6 +1,7 @@
 <% content_for :stylesheets do %>
 	<link rel="stylesheet" type="text/css" href="/assets/product/list.css">
 	
+	<link rel="stylesheet" type="text/css" href="/assets/layout/css/woooo.css">
 <% end %>
 
 <% content_for :javascripts do %>
@@ -24,7 +25,6 @@
 							<li class="first post-1426 product type-product status-publish has-post-thumbnail product_cat-food product_cat-shop product_tag-food featured shipping-taxable purchasable product-type-variable product-cat-food product-cat-shop product-tag-food has-default-attributes has-children instock">
 								<a href="/product/detail/<%= product.id %>">
 									<span class="et_shop_image">
-										
 										<img width="400" height="400" src="/assets/<%= "#{product.upload_files[0].id}_#{product.upload_files[0].name}" %>" />
 										<span class="et_overlay"></span>
 									</span>
@@ -40,15 +40,7 @@
 			</div>
 		</div>
 
-		<nav class="text-center">
-			<ul class="pagination">
-				<li><a href="#">1</a></li>
-				<li><a href="#">2</a></li>
-				<li><a href="#">3</a></li>
-				<li><a href="#">4</a></li>
-				<li><a href="#">5</a></li>
-			</ul>
-		</nav>
+		<%= will_paginate @products, previous_label: '« Trang trước', next_label: 'Trang sau »' %>
 	</div> 
 </div>
 

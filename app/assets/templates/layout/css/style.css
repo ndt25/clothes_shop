@@ -2868,6 +2868,7 @@ div.pp_overlay {
 /* Footer */
 #main-footer {
 	background-color: #222;
+	margin-top: 40px;
 }
 
 /* Widgets */

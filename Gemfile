@@ -1,5 +1,8 @@
 source 'https://rubygems.org'
 
+gem 'pg'
+gem 'composite_primary_keys'
+gem 'will_paginate'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.6'

@@ -5,56 +5,25 @@
 <% content_for :javascripts do %>
 	<script type="text/javascript" src="/assets/product/cart.js"></script>
 <% end %>
-
-<div id="main-content">
-
-
-	<div class="container">
-		
-			<div id="left-area">
-
-
-			
-				<article id="post-1417" class="post-1417 page type-page status-publish hentry">
-
-				
-					<h1 class="entry-title main_title">Kiểm Tra</h1>
-				
-				
-					<div class="entry-content">
-					<div class="woocommerce">
-	
-
-
-
-	
-
-
-
-<form name="checkout" method="post" class="checkout woocommerce-checkout" action="http://www.elegantthemes.com/preview/Divi/checkout/" enctype="multipart/form-data">
-
-	
-		
-		
-
-		
-	
-	<h3 id="order_review_heading">Your order</h3>
-
-	
-	<div id="order_review" class="woocommerce-checkout-review-order">
-		<table class="shop_table woocommerce-checkout-review-order-table">
-	<thead>
-		<tr>
-			<th class="product-remove">&nbsp;</th>
-			<th class="product-thumbnail">&nbsp;</th>
-			<th class="product-name">Product</th>
-			<th class="product-price">Giá</th>
-			<th class="product-quantity">Số Lượng</th>
-			<th class="product-total">Total</th>
-		</tr>
-	</thead>
-	<tbody><%
+<div class="container1">
+	<article id="post-1416" class="post-1416 page type-page status-publish hentry">
+		<h1 class="entry-title main_title">Đơn Hàng</h1>
+		<div class="entry-content">
+			<div class="woocommerce">
+				<form action="http://www.elegantthemes.com/preview/Divi/cart/" method="post">
+					<table class="shop_table shop_table_responsive cart" cellspacing="0">
+						<thead>
+							<tr>
+								<th class="product-remove">&nbsp;</th>
+								<th class="product-thumbnail">&nbsp;</th>
+								<th class="product-name">Tên Sản Phẩm</th>
+								<th class="product-price">Giá</th>
+								<th class="product-quantity">Số Lượng</th>
+								<th class="product-subtotal">Tổng Tiền</th>
+							</tr>
+						</thead>
+						<tbody>
+							<%
 								total = 0
 							%>
 							<% @products.each do |product| %>
@@ -88,35 +57,36 @@
 							<% end %>
 							<tr>
 								<td colspan="6" class="actions">
-									<input type="submit" class="button" value="Thanh Toán">			
-											
+									<input type="submit" class="button" name="update_cart" value="Cập Nhật">			
+									<input type="hidden" id="_wpnonce" name="_wpnonce" value="e84160f257">
+									<input type="hidden" name="_wp_http_referer" value="#">			
 								</td>
 							</tr>
 						</tbody>
-	
-</table>
+					</table>
+				</form>
+				<div class="cart-collaterals">
+					<div class="cart_totals ">
+						<h2>Tổng tiền</h2>
+						<table cellspacing="0" class="shop_table shop_table_responsive">
+							<tbody>
+								<tr class="order-total">
+									<th>Tổng Tiền</th>
+									<td data-title="Total">
+										<strong>
+											<span class="amount"><%= total %></span>
+										</strong> 
+									</td>
+								</tr>
+							</tbody>
+						</table>
+						
+					</div>
+				</div>
 
-
-
-	</div>
-
-	
-</form>
-
+			</div>
+		</div>
+	</article>
 </div>
-					</div> <!-- .entry-content -->
 
-				
-				</article> <!-- .et_pb_post -->
-
-			
-
-			</div> <!-- #left-area -->
-
-				
-		
-	</div> <!-- .container -->
-
-
-</div>
 

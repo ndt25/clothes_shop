@@ -6,12 +6,16 @@
 	<script type="text/javascript" src="/assets/product/cart.js"></script>
 <% end %>
 
+<%
+	total = 0
+%>
+
 <div class="container1">
 	<article id="post-1416" class="post-1416 page type-page status-publish hentry">
 		<h1 class="entry-title main_title">Giỏ Hàng</h1>
 		<div class="entry-content">
 			<div class="woocommerce">
-				<form action="http://www.elegantthemes.com/preview/Divi/cart/" method="post">
+				<%= form_tag '/product/update_cart', method: 'post' do %>
 					<table class="shop_table shop_table_responsive cart" cellspacing="0">
 						<thead>
 							<tr>
@@ -24,31 +28,30 @@
 							</tr>
 						</thead>
 						<tbody>
-							<%
-								total = 0
-							%>
 							<% @products.each do |product| %>
 								<%
 									quantity = session[:cart][product.id.to_s]
 									total += product.price * quantity.to_i
 								%>
 								<tr class="cart_item">
+									<input type="hidden" name="cart[][id]" value="<%= product.id %>">
 									<td class="product-remove">
-										<a href="http://www.elegantthemes.com/preview/Divi/cart/?remove_item=56468d5607a5aaf1604ff5e15593b003&amp;_wpnonce=e84160f257" class="remove" title="Remove this item" data-product_id="1432" data-product_sku="">×</a>	
+										<a href="javascript:;" class="remove delete" title="Remove this item">×</a>	
 									</td>
 									<td class="product-thumbnail">
-										<a href="http://www.elegantthemes.com/preview/Divi/product/flower-pot/"><img width="157" height="157"
+										<a href="#"><img width="157" height="157"
 										 src="/assets/<%= "#{product.upload_files[0].id}_#{product.upload_files[0].name}" %>"></a>					
 									</td>
 									<td class="product-name" data-title="Product">
-										<a href="http://www.elegantthemes.com/preview/Divi/product/flower-pot/"><%= product.name %></a>					
+										<a href="/product/detail/<%= product.id %>"><%= product.name %></a>					
 									</td>
 									<td class="product-price" data-title="Price">
 										<span class="amount"><%= product.price %></span>					
 									</td>
 									<td class="product-quantity" data-title="Quantity">
 										<div class="quantity">
-											<input type="number" step="1" min="1" max="10" name="" value="<%= quantity %>" title="Qty" class="input-text qty text">
+											<input type="number" step="1" min="1" max="10" name="cart[][quantity]" 
+											value="<%= quantity %>" title="Qty" class="input-text qty text">
 										</div>
 									</td>
 									<td class="product-subtotal" data-title="Total">
@@ -65,10 +68,9 @@
 							</tr>
 						</tbody>
 					</table>
-				</form>
+				<% end %>
 				<div class="cart-collaterals">
 					<div class="cart_totals ">
-						<h2>Tổng tiền</h2>
 						<table cellspacing="0" class="shop_table shop_table_responsive">
 							<tbody>
 								<tr class="order-total">
@@ -82,7 +84,7 @@
 							</tbody>
 						</table>
 						<div class="wc-proceed-to-checkout">
-							<a href="http://www.elegantthemes.com/preview/Divi/checkout/" class="checkout-button button alt wc-forward">Kiểm Tra</a>
+							<a href="/product/order" class="checkout-button button alt wc-forward">Đặt Hàng</a>
 						</div>
 					</div>
 				</div>
